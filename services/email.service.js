@@ -12,7 +12,7 @@ class EmailService {
   }
 
   getEmails() {
-    const emails = this.storage.getItems();
+    const emails = this.storage.getEmails();
 
     return emails;
   }
@@ -22,11 +22,11 @@ class EmailService {
       throw new Error(ExceptionMessage.EMAIL_ALREADY_EXISTS);
     }
 
-    const nextId = this.storage.nextId;
-    const newEmailItem = { id: nextId, email };
-    this.storage.pushItem(newEmailItem);
+    const id = this.storage.nextId;
+    const newEmailItem = { id, email };
+    this.storage.pushEmail(newEmailItem);
 
-    return nextId - 1;
+    return id;
   }
 
   checkIfEmailExists(email) {
