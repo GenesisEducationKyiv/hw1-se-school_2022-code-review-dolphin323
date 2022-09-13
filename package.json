@@ -8,7 +8,8 @@
     "start": "node server",
     "dev": "nodemon server",
     "lint": "eslint",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --selectProjects SERVER"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --selectProjects SERVER",
+    "playwrite": "npx playwright test"
   },
   "repository": {
     "type": "git",
