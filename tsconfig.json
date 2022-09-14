@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "alwaysStrict": true,
+    "allowJs": true,
+    "module": "ESNext",
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "incremental": true,
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "build",
+    "baseUrl": ".",
+    "declaration": true
+  },
+  "ts-node": {
+    "esm": true,
+    "transpileOnly": true,
+    "files": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

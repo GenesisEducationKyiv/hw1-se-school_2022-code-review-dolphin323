@@ -6,7 +6,8 @@ GSES2 BTC application
 
 1. Create `.env` file and copy `.env.example` in it and change required data.
 2. Run `npm install`
-3. Run `npm run start`
+3. Run `npm run dev`
+4. Run `npm run start` or `npm run dev`
 
 # Docker
 
