@@ -1,8 +1,9 @@
 import fs from "fs";
+import { IJsonStorage } from "./types";
 
-class JsonStorageRepository {
-  filePath: any;
-  constructor(filePath) {
+class JsonStorageRepository implements IJsonStorage {
+  filePath: string;
+  constructor(filePath: string) {
     this.filePath = filePath;
   }
 
@@ -13,7 +14,7 @@ class JsonStorageRepository {
     return jsonAll;
   }
 
-  getByKey(key) {
+  getByKey(key: string) {
     const file = this.getAll();
 
     return file[key];
@@ -25,8 +26,8 @@ class JsonStorageRepository {
     this.writeAll(file);
   }
 
-  writeAll(file) {
-    fs.writeFileSync(this.filePath, JSON.stringify(file, null, 2));
+  writeAll(filePath: string) {
+    fs.writeFileSync(this.filePath, JSON.stringify(filePath, null, 2));
   }
 }
 

@@ -1,4 +1,4 @@
-import { EmailModel } from "src/common/models/models";
+import { EmailModel } from "../../common/models/models";
 
 class JsonStorageEmailRepository {
   storageKeys = { nextId: "nextId", emails: "emails" };
