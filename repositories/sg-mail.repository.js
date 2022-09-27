@@ -9,10 +9,10 @@ class SgMailRepository {
     try {
       await sgMail.send(data);
     } catch (error) {
-      throw {
+      throw new Error({
         code: error.code,
         message: new Error(error.message),
-      };
+      });
     }
   }
 }

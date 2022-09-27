@@ -16,12 +16,11 @@ class ApiController {
   async getRate(req, res) {
     const rateData = await this.currencyService.getRate({});
     res.status(HttpCode.OK).send(rateData[Currency.UAH]);
-
-    return;
   }
 
   async postSubscribe(req, res) {
     const email = req.body.email;
+
     if (!validateEmail(email)) {
       res
         .status(HttpCode.BAD_REQUEST)
@@ -32,6 +31,7 @@ class ApiController {
 
     try {
       this.emailService.addEmail(email);
+
       res.status(HttpCode.OK).send(HttpResponseMessage.EMAIL_ADDED);
     } catch (error) {
       if (error.message === ExceptionMessage.EMAIL_ALREADY_EXISTS) {
@@ -40,8 +40,6 @@ class ApiController {
         res.status(HttpCode.INTERNAL_SERVER_ERROR).send(error);
       }
     }
-
-    return;
   }
 
   async postSendEmails(req, res) {
@@ -74,8 +72,6 @@ class ApiController {
       }
       res.status(HttpCode.INTERNAL_SERVER_ERROR).send(error);
     }
-
-    return;
   }
 }
 
