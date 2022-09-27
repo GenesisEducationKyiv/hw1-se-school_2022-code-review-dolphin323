@@ -1,16 +1,11 @@
 import { EmailModel } from "../../common/models/models.js";
-import {
-  ExceptionMessage,
-  HttpCode,
-  SgMailException,
-} from "../../utils/enums/enums.js";
-import { createMail } from "../../utils/helpers/helpers.js";
+import { ExceptionMessage } from "../../utils/enums/enums.js";
 import { IEmailService } from "./types.js";
 
 class EmailService implements IEmailService {
   mailRepository: any;
   storage: any;
-  constructor(storage: any, mailRepository: any) {
+  constructor (storage: any, mailRepository: any) {
     this.storage = storage;
     this.mailRepository = mailRepository;
   }
@@ -48,26 +43,8 @@ class EmailService implements IEmailService {
     subject: string;
   }) {
     const emails = this.getEmails();
-    const failedSendingEmails: any[] = [];
 
-    await Promise.all(
-      emails.map(async (item: any) => {
-        try {
-          await this.mailRepository.sendMessage(
-            createMail({ html, subject, to: item.email })
-          );
-        } catch (error: any) {
-          if (error.code === HttpCode.UNAUTHORIZED) {
-            throw new Error(SgMailException.UNAUTHORIZED);
-          }
-          failedSendingEmails.push(item.email);
-        }
-      })
-    );
-
-    if (failedSendingEmails.length === emails.length) {
-      throw new Error(ExceptionMessage.BAD_REQUEST);
-    }
+    const failedSendingEmails = await this.mailRepository.sendMessages(emails, html, subject);
 
     return failedSendingEmails;
   }
