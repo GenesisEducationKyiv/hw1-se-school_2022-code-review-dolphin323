@@ -1,12 +1,12 @@
 import { FilePath, ENV } from "../utils/enums/enums.js";
 import {
-  HttpRepository,
   JsonStorageEmailRepository,
   JsonStorageRepository,
   SgMailRepository,
 } from "./../repositories/repositories.js";
 import { EmailService } from "./email/email.service.js";
-import { CurrencyService } from "./currency/currency.service.js";
+import { ICurrencyService } from "./currency/types.js";
+import { initCurrencyService } from "./currency/helpers/init-currency-service.js";
 
 const emailService = new EmailService(
   new JsonStorageEmailRepository(
@@ -15,6 +15,6 @@ const emailService = new EmailService(
   new SgMailRepository(ENV.SENDGRID.API_KEY)
 );
 
-const currencyService = new CurrencyService(new HttpRepository());
+const currencyService: ICurrencyService = initCurrencyService();
 
 export { emailService, currencyService };

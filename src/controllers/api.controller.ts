@@ -1,3 +1,4 @@
+import { ICurrencyService } from "src/services/currency/types.js";
 import {
   Currency,
   HttpCode,
@@ -9,15 +10,25 @@ import { getMailTemplate, validateEmail } from "../utils/helpers/helpers.js";
 
 class ApiController {
   emailService: any;
-  currencyService: any;
-  constructor(emailService, currencyService) {
+  currencyService: ICurrencyService;
+  constructor(emailService, currencyService: ICurrencyService) {
     this.emailService = emailService;
     this.currencyService = currencyService;
   }
 
   async getRate(req, res) {
-    const rateData = await this.currencyService.getRate({});
-    res.status(HttpCode.OK).send(rateData[Currency.UAH]);
+    try {
+      const rateData = await this.currencyService.getRate({});
+      res.status(HttpCode.OK).send(rateData);
+    } catch (error: any) {
+      if (error.message === ExceptionMessage.COULDNT_GET_RATE) {
+        res
+          .status(HttpCode.INTERNAL_SERVER_ERROR)
+          .send(HttpResponseMessage.COULDNT_GET_RATE);
+      } else {
+        res.status(HttpCode.INTERNAL_SERVER_ERROR).send(error);
+      }
+    }
   }
 
   async postSubscribe(req, res) {
