@@ -1,10 +1,10 @@
 import { EmailModel } from "../../common/models/models";
 
-class JsonStorageEmailRepository {
+class EmailStorageRepository {
   storageKeys = { nextId: "nextId", emails: "emails" };
   storage: any;
 
-  constructor(storage) {
+  constructor (storage) {
     this.storage = storage;
   }
 
@@ -44,4 +44,4 @@ class JsonStorageEmailRepository {
   }
 }
 
-export { JsonStorageEmailRepository };
+export { EmailStorageRepository };
