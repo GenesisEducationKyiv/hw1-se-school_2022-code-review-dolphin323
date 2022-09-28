@@ -22,7 +22,7 @@ Steps to run app in docker:
 
 # App architecture
 
-![App architecture](hhttps://res.cloudinary.com/ddr6sugne/image/upload/v1664311088/app-diagram.drawio_1_xyskwu.png)
+![App architecture](https://res.cloudinary.com/ddr6sugne/image/upload/v1664311088/app-diagram.drawio_1_xyskwu.png)
 
 # App structure
 
