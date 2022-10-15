@@ -1,4 +1,4 @@
-import { ICurrencyService } from "src/services/currency/types.js";
+import { ICurrencyService } from "../services/currency/types.js";
 import {
   Currency,
   HttpCode,
@@ -11,7 +11,7 @@ import { getMailTemplate, validateEmail } from "../utils/helpers/helpers.js";
 class ApiController {
   emailService: any;
   currencyService: ICurrencyService;
-  constructor(emailService, currencyService: ICurrencyService) {
+  constructor (emailService, currencyService: ICurrencyService) {
     this.emailService = emailService;
     this.currencyService = currencyService;
   }
@@ -67,14 +67,13 @@ class ApiController {
         .status(HttpCode.OK)
         .send(
           HttpResponseMessage.EMAILS_SENT +
-            `${
-              failedSendingEmails.length
-                ? " " +
-                  HttpResponseMessage.EMAILS_FAILED +
-                  " " +
-                  failedSendingEmails.join(",")
-                : ""
-            }`
+          `${failedSendingEmails.length
+            ? " " +
+            HttpResponseMessage.EMAILS_FAILED +
+            " " +
+            failedSendingEmails.join(",")
+            : ""
+          }`
         );
     } catch (error: any) {
       if (error?.message === ExceptionMessage.BAD_REQUEST) {

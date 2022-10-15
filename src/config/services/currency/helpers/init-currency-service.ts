@@ -1,11 +1,13 @@
-import { HttpRepository } from "../../../repositories/repositories.js";
-import { ENV, CurrencyProvider } from "../../../utils/enums/enums.js";
-import { CurrencyApiLayerService } from "../currency-api-layer.service.js";
-import { CurrencyCryproCompareService } from "../currency-crypto-compare.service.js";
-import { CurrencyExchangeRateService } from "../currency-exchange-rate.service.js";
-import { CurrencyLoggingService } from "../currency-logging.service.js";
-import { CurrencyProxyService } from "../currency-proxy.service.js";
-import { ICurrencyService } from "../types.js";
+import { HttpRepository } from "../../../../repositories/repositories.js";
+import { ENV, CurrencyProvider } from "../../../../utils/enums/enums.js";
+import { ICurrencyService } from "../../../../services/currency/types.js";
+import {
+  CurrencyApiLayerService,
+  CurrencyCryproCompareService,
+  CurrencyExchangeRateService,
+  CurrencyLoggingService,
+  CurrencyProxyService
+} from "../../../../services/services.js";
 
 type CurrencyServices = {
   cryptoCompareService: ICurrencyService;

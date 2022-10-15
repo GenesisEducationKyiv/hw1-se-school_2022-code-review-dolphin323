@@ -7,7 +7,7 @@ import {
   FilePath,
   HttpCode,
 } from "../utils/enums/enums.js";
-import { apiController } from "../controllers/controllers.js";
+import { apiController } from "../config/config.js";
 import { initApi } from "../routes/routes.js";
 
 function build(opts = {}) {
