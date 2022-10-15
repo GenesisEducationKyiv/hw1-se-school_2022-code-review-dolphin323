@@ -20,6 +20,10 @@ Steps to run app in docker:
 3. Stop container when you want to stop app running in docker:  
    `docker stop container-gses-test-task`
 
+# App architecture
+
+![App architecture](https://res.cloudinary.com/ddr6sugne/image/upload/v1664311088/app-diagram.drawio_1_xyskwu.png)
+
 # App structure
 
 ```mermaid
