@@ -1,4 +1,4 @@
-import { EmailModel } from "src/common/models/models.js";
+import { EmailModel } from "../../common/models/models.js";
 import {
   ExceptionMessage,
   HttpCode,

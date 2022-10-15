@@ -6,6 +6,7 @@ const HttpResponseMessage = {
   EMAILS_FAILED: "Failed to send email to:",
   NO_EMAIL: "Email is required",
   BAD_REQUEST: "Bad request",
+  COULDNT_GET_RATE: "All services are down now :(",
 };
 
 export { HttpResponseMessage };

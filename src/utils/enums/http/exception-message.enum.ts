@@ -6,6 +6,7 @@ const ExceptionMessage = {
   SHOULDNT_HAVE_QUERY: "Request shouldn't have query",
   SHOULDNT_HAVE_BODY: "Request shouldn't have body",
   BAD_REQUEST: "Bad request",
+  COULDNT_GET_RATE: "Couldn't get rate",
 };
 
 export { ExceptionMessage };

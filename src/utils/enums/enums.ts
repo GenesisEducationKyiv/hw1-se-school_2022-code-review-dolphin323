@@ -7,5 +7,9 @@ export {
   HttpResponseMessage,
 } from "./http/http.js";
 export { FilePath } from "./file-path/file-path.js";
-export { Currency } from "./currency/currency.js";
+export {
+  Currency,
+  CurrencyProvider,
+  CurrencyProviderName,
+} from "./currency/currency.js";
 export { SgMailException } from "./sg-mail/sg-mail.js";

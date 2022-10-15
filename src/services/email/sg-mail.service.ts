@@ -1,7 +1,7 @@
 import sgMail from "@sendgrid/mail";
 
-class SgMailRepository {
-  constructor(API_KEY) {
+class SgMailService {
+  constructor (API_KEY: string) {
     sgMail.setApiKey(API_KEY);
   }
 
@@ -19,4 +19,4 @@ class SgMailRepository {
   }
 }
 
-export { SgMailRepository };
+export { SgMailService };
