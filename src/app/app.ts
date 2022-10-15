@@ -1,12 +1,7 @@
 import fastify from "fastify";
 import cors from "@fastify/cors";
 import swagger, { StaticPathSpec } from "@fastify/swagger";
-import {
-  ENV,
-  ExceptionMessage,
-  FilePath,
-  HttpCode,
-} from "../utils/enums/enums.js";
+import { ENV, ExceptionMessage, HttpCode } from "../utils/enums/enums.js";
 import { apiController } from "../config/config.js";
 import { initApi } from "../routes/routes.js";
 

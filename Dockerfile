@@ -1,8 +1,8 @@
 FROM node
 
-WORKDIR /server
+WORKDIR /src/server
 
-COPY package.json /server
+COPY package.json /src/server
 
 RUN npm install
 

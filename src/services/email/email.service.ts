@@ -5,7 +5,7 @@ import { IEmailService } from "./types.js";
 class EmailService implements IEmailService {
   mailRepository: any;
   storage: any;
-  constructor (storage: any, mailRepository: any) {
+  constructor(storage: any, mailRepository: any) {
     this.storage = storage;
     this.mailRepository = mailRepository;
   }
@@ -30,7 +30,7 @@ class EmailService implements IEmailService {
 
   checkIfEmailExists(email: string) {
     const emails = this.getEmails();
-    const isEmailExists = emails.some((item) => item.address === email);
+    const isEmailExists = emails.some((item) => item.email === email);
 
     return isEmailExists;
   }
@@ -44,7 +44,11 @@ class EmailService implements IEmailService {
   }) {
     const emails = this.getEmails();
 
-    const failedSendingEmails = await this.mailRepository.sendMessages(emails, html, subject);
+    const failedSendingEmails = await this.mailRepository.sendMessages(
+      emails,
+      html,
+      subject
+    );
 
     return failedSendingEmails;
   }

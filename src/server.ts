@@ -4,6 +4,8 @@ import addFormats from "ajv-formats";
 import { ExitCode, ENV } from "./utils/enums/enums.js";
 import { errorHandler, validatorCompiler } from "./utils/helpers/helpers.js";
 import { build } from "./app/app.js";
+import { initRabbitMQ } from "./config/services/services.config.js";
+import { initAppHooks } from "./hooks/hooks.js";
 
 const ajv = new Ajv({ allErrors: true });
 
@@ -14,6 +16,10 @@ const app = build({
   logger: true,
   ajv: { plugins: [AjvErrors, addFormats] },
 });
+
+const { rabbitMQProducer, rabbitMQConsumer } = await initRabbitMQ();
+
+initAppHooks(app, rabbitMQProducer);
 
 app.setErrorHandler(errorHandler);
 

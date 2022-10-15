@@ -1,6 +1,6 @@
 type EmailModel = {
   id: number;
-  address: string;
+  email: string;
 };
 
 export { EmailModel };
