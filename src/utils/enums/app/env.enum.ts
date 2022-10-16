@@ -11,6 +11,7 @@ const {
   API_LAYER_URL,
   API_LAYER_API_KEY,
   CRYPTO_CURRENCY_PROVIDER,
+  RABBITMQ_URL,
 } = process.env;
 
 const ENV = {
@@ -19,8 +20,9 @@ const ENV = {
     PORT: Number(APP_PORT) ?? 3000,
     HOST: "0.0.0.0",
   },
+  RABBITMQ: { URL: RABBITMQ_URL || "amqp://localhost:5672" },
   SENDGRID: {
-    API_KEY: SENDGRID_API_KEY || '',
+    API_KEY: SENDGRID_API_KEY || "",
     VERIFIED_SENDER: SENDGRID_VERIFIED_SENDER,
   },
   CURRENCY: {
